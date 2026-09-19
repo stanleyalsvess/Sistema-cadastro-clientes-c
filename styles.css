@@ -5,7 +5,7 @@ button,input,select { font:inherit; }
 button { cursor:pointer; border:0; }
 .app-shell { display:flex; min-height:100vh; }
 .sidebar { background:var(--navy); color:#d9e7e6; width:246px; padding:28px 18px 20px; display:flex; flex-direction:column; flex-shrink:0; }
-.brand { display:flex; align-items:center; gap:10px; color:#fff; font:700 23px 'Space Grotesk',sans-serif; letter-spacing:-1px; padding:0 12px 47px; }
+.brand { display:flex; align-items:flex-start; gap:10px; color:#fff; font:700 15px/1.15 'Space Grotesk',sans-serif; letter-spacing:0; padding:0 12px 47px; }
 .brand-mark { display:grid; place-items:center; background:#f1b556; color:var(--navy); width:28px; height:28px; border-radius:9px; font-size:18px; }
 .menu-label { color:#789397; font-size:10px; text-transform:uppercase; letter-spacing:1.3px; font-weight:700; margin:0 12px 12px; }
 .main-nav { display:grid; gap:5px; margin-bottom:37px; }
