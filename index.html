@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clara | Cadastro de clientes</title>
+    <meta name="description" content="Painel de cadastro e acompanhamento de clientes." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand"><span class="brand-mark">C</span><span>clara</span></div>
+        <p class="menu-label">Menu principal</p>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <a class="nav-item active" href="#inicio"><span class="nav-icon">⌂</span> Visão geral</a>
+          <a class="nav-item" href="#clientes"><span class="nav-icon">♙</span> Clientes <span class="nav-count">24</span></a>
+          <a class="nav-item" href="#relatorios"><span class="nav-icon">▥</span> Relatórios</a>
+        </nav>
+        <p class="menu-label">Conta</p>
+        <nav class="main-nav" aria-label="Navegação da conta">
+          <a class="nav-item" href="#configuracoes"><span class="nav-icon">⚙</span> Configurações</a>
+          <a class="nav-item" href="#ajuda"><span class="nav-icon">?</span> Central de ajuda</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card"><strong>Precisa de ajuda?</strong><span>Fale com nosso suporte.</span><button type="button">Abrir suporte <span>↗</span></button></div>
+          <div class="profile"><span class="avatar avatar-coral">SA</span><span class="profile-copy"><strong>Stanley Alves</strong><small>Administrador</small></span><button class="more-button" aria-label="Mais opções">•••</button></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="inicio">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+          <div class="breadcrumbs"><span>Início</span><b>/</b><strong>Visão geral</strong></div>
+          <div class="top-actions"><button class="icon-button" aria-label="Notificações">♢<i></i></button><span class="top-divider"></span><span class="top-date">19 de setembro, 2026</span></div>
+        </header>
+
+        <section class="welcome-row">
+          <div><p class="eyebrow">SÁBADO, 19 DE SETEMBRO</p><h1>Olá, Stanley <span>✦</span></h1><p class="subtitle">Aqui está o que está acontecendo com seus clientes hoje.</p></div>
+          <button class="primary-button" id="openModal"><span>＋</span> Novo cliente</button>
+        </section>
+
+        <section class="stats-grid" aria-label="Resumo de clientes">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon blue">♙</span><span class="trend up">↗ 12,5%</span></div><p>Total de clientes</p><strong id="totalClients">24</strong><small>vs. mês anterior</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon yellow">◷</span><span class="trend up">↗ 8,2%</span></div><p>Novos este mês</p><strong id="newClients">08</strong><small>vs. mês anterior</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon green">✓</span><span class="trend up">↗ 4,8%</span></div><p>Clientes ativos</p><strong id="activeClients">21</strong><small>87,5% da base total</small></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon coral">◌</span><span class="trend down">↘ 2,1%</span></div><p>Inativos</p><strong id="inactiveClients">03</strong><small>precisam de atenção</small></article>
+        </section>
+
+        <section class="content-panel" id="clientes">
+          <div class="panel-heading"><div><h2>Clientes recentes</h2><p>Gerencie e acompanhe sua base de clientes.</p></div><a class="view-all" href="#clientes">Ver todos <span>→</span></a></div>
+          <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar por nome ou e-mail..." /></label><div class="filter-group"><select id="statusFilter" aria-label="Filtrar por status"><option value="Todos">Todos os status</option><option value="Ativo">Ativos</option><option value="Inativo">Inativos</option></select><button class="filter-button" type="button">☷ <span>Filtros</span></button></div></div>
+          <div class="table-wrap"><table><thead><tr><th>CLIENTE</th><th>CONTATO</th><th>CADASTRO</th><th>STATUS</th><th></th></tr></thead><tbody id="clientTable"></tbody></table><div class="empty-state" id="emptyState" hidden>Nenhum cliente encontrado.</div></div>
+          <div class="table-footer"><span id="resultCount">Mostrando 5 de 24 clientes</span><div class="pagination"><button type="button" disabled>←</button><button class="current" type="button">1</button><button type="button">2</button><button type="button">3</button><span>...</span><button type="button">5</button><button type="button">→</button></div></div>
+        </section>
+        <footer class="footer"><span>© 2026 Clara</span><span>Feito para deixar sua rotina mais leve.</span></footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="modal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="close-modal" id="closeModal" aria-label="Fechar">×</button><p class="eyebrow">NOVO REGISTRO</p><h2 id="modalTitle">Cadastrar cliente</h2><p class="modal-copy">Adicione os dados principais para criar um novo perfil.</p><form id="clientForm"><label>Nome completo<input name="name" required placeholder="Ex.: Ana Souza" /></label><label>E-mail<input name="email" type="email" required placeholder="ana@email.com" /></label><label>Telefone<input name="phone" required placeholder="(11) 99999-9999" /></label><div class="form-actions"><button class="cancel-button" type="button" id="cancelModal">Cancelar</button><button class="primary-button" type="submit">Salvar cliente</button></div></form></section></div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

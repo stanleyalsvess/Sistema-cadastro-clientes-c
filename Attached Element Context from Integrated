@@ -1,0 +1,36 @@
+Attached Element Context from Integrated Browser
+
+Element: pre
+
+URL: 0.0.1:3633http://127.3/
+
+HTML Path: pre
+
+Outer HTML:
+```html
+<pre style="word-wrap: break-word; white-space: pre-wrap;">ok</pre>
+```
+
+Dimensions:
+- top: 0px
+- left: 8px
+- width: 726px
+- height: 41px
+
+CSS:
+```css
+element { word-wrap: break-word; white-space: pre-wrap; }
+
+/* Resolved values */
+white-space: pre-wrap;
+display: block;
+font-family: monospace /*UA*/;
+height: 15.2px;
+margin-block-end: 13px /*UA*/;
+margin-block-start: 13px /*UA*/;
+margin-inline-end: 0px /*UA*/;
+margin-inline-start: 0px /*UA*/;
+overflow-wrap: break-word;
+unicode-bidi: isolate /*UA*/;
+width: 726.4px;
+```
