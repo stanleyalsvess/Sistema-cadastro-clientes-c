@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clara | Cadastro de clientes</title>
+    <title>Sistema de cadastramento de cliente</title>
     <meta name="description" content="Painel de cadastro e acompanhamento de clientes." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +56,21 @@
           <div class="table-wrap"><table><thead><tr><th>CLIENTE</th><th>CONTATO</th><th>CADASTRO</th><th>STATUS</th><th></th></tr></thead><tbody id="clientTable"></tbody></table><div class="empty-state" id="emptyState" hidden>Nenhum cliente encontrado.</div></div>
           <div class="table-footer"><span id="resultCount">Mostrando 5 de 24 clientes</span><div class="pagination"><button type="button" disabled>←</button><button class="current" type="button">1</button><button type="button">2</button><button type="button">3</button><span>...</span><button type="button">5</button><button type="button">→</button></div></div>
         </section>
-        <footer class="footer"><span>© 2026 Clara</span><span>Feito para deixar sua rotina mais leve.</span></footer>
+
+        <section class="page-section" id="relatorios">
+          <div class="section-heading"><div><p class="eyebrow">ANÁLISE DE VENDAS</p><h2>Relatórios</h2><p class="subtitle">Veja quem mais compra e quais produtos movimentam sua base.</p></div><button class="secondary-button" id="exportReport" type="button">↓ Exportar relatório</button></div>
+          <div class="report-grid">
+            <article class="report-card featured-report"><div class="report-card-heading"><div><span class="report-icon yellow">★</span><h3>Cliente que mais comprou</h3></div><span class="period-label">Este mês</span></div><div class="top-buyer"><span class="buyer-avatar tone-c">BC</span><div><strong id="topBuyerName">Beatriz Costa</strong><small>Cliente desde março de 2025</small></div><strong class="buyer-total" id="topBuyerTotal">R$ 4.860,00</strong></div><div class="progress-track"><span id="topBuyerProgress"></span></div><p class="report-note">12 pedidos realizados no período</p></article>
+            <article class="report-card"><div class="report-card-heading"><div><span class="report-icon green">▣</span><h3>Produto mais comprado</h3></div><span class="period-label">Este mês</span></div><div class="product-highlight"><strong id="topProductName">Plano Premium</strong><span id="topProductCount">18 vendas</span></div><div class="product-bars"><span style="height:100%"></span><span style="height:65%"></span><span style="height:82%"></span><span style="height:48%"></span><span style="height:74%"></span><span style="height:90%"></span><span style="height:55%"></span></div><p class="report-note">R$ 7.920,00 em faturamento</p></article>
+          </div>
+          <article class="report-card purchases-report"><div class="report-card-heading"><div><h3>Histórico de compras por cliente</h3><p>Produtos e valores registrados nos últimos pedidos.</p></div><select id="purchaseFilter" aria-label="Filtrar compras"><option value="Todos">Todos os clientes</option><option value="Beatriz Costa">Beatriz Costa</option><option value="Camila Ribeiro">Camila Ribeiro</option><option value="Lucas Mendes">Lucas Mendes</option><option value="Juliana Martins">Juliana Martins</option></select></div><div class="table-wrap"><table class="purchases-table"><thead><tr><th>CLIENTE</th><th>O QUE COMPROU</th><th>QUANTIDADE</th><th>VALOR TOTAL</th><th>ÚLTIMA COMPRA</th></tr></thead><tbody id="purchaseTable"></tbody></table></div></article>
+        </section>
+
+        <section class="page-section settings-section" id="configuracoes">
+          <div class="section-heading"><div><p class="eyebrow">PREFERÊNCIAS DO SISTEMA</p><h2>Configurações</h2><p class="subtitle">Personalize o sistema de cadastramento de cliente.</p></div><span class="saved-state" id="savedState">Alterações salvas automaticamente</span></div>
+          <div class="settings-layout"><nav class="settings-tabs" aria-label="Categorias de configuração"><button class="settings-tab active" type="button">Geral</button><button class="settings-tab" type="button">Notificações</button><button class="settings-tab" type="button">Segurança</button></nav><form class="settings-form" id="settingsForm"><div class="settings-form-heading"><h3>Informações gerais</h3><p>Defina como o sistema será apresentado para sua equipe.</p></div><label>Nome do sistema<input id="systemName" name="systemName" value="Sistema de cadastramento de cliente" /></label><label>Administrador responsável<input id="adminName" name="adminName" value="Stanley Alves" /></label><label>Formato de data<select name="dateFormat"><option>DD/MM/AAAA</option><option>DD de mês de AAAA</option><option>AAAA-MM-DD</option></select></label><div class="setting-toggle"><div><strong>Notificações de novos clientes</strong><small>Receba um aviso quando um novo cadastro for realizado.</small></div><label class="switch"><input name="notifications" type="checkbox" checked /><span></span></label></div><div class="form-actions"><button class="cancel-button" id="resetSettings" type="button">Restaurar padrão</button><button class="primary-button" type="submit">Salvar configurações</button></div></form></div>
+        </section>
+        <footer class="footer"><span>© 2026 Sistema de cadastramento de cliente</span><span>Feito para deixar sua rotina mais leve.</span></footer>
       </main>
     </div>
 
